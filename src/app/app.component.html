@@ -1,0 +1,23 @@
+<div class="container">
+  <h1 class="title">My TODOs</h1>
+
+  <form class="todo-form" (submit)="$event.preventDefault(); add();">
+    <input
+      type="text"
+      [(ngModel)]="newTitle"
+      name="title"
+      placeholder="Add a task..."
+      class="todo-input"
+      required
+    />
+    <button type="submit" class="btn-add">Add</button>
+  </form>
+
+  <!-- Grid for todos -->
+  <div class="todo-grid">
+    <div class="todo-card" *ngFor="let t of todos()">
+      <div class="todo-title">{{ t.title }}</div>
+      <button class="btn-delete" (click)="remove(t.id)">✕</button>
+    </div>
+  </div>
+</div>

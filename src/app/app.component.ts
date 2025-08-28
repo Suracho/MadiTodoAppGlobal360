@@ -28,13 +28,13 @@ export class AppComponent {
   add() {
     const title = this.newTitle.trim();
     if (!title) return;
-    this.http.post<TodoItem>(this.api, { title }).subscribe(() => {
+    this.http.post<TodoItem>(this.api, { title }).subscribe(_ => {
       this.newTitle = '';
       this.load();
     });
   }
 
   remove(id: number) {
-    this.http.delete(`${this.api}/${id}`).subscribe(() => this.load());
+    this.http.delete(`${this.api}/${id}`).subscribe(_ => this.load());
   }
 }
